@@ -117,4 +117,10 @@ class DemoApplicationTests {
     public void test12() {
         System.out.println(repository.findByAndSort("南京办", "日本%"));
     }
+
+    @Test
+    public void test13() {
+        List<Dept> riben = cityRepository.findByNameWithSpelExpression("日本");
+        System.out.println(riben);
+    }
 }

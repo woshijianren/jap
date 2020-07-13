@@ -3,6 +3,7 @@ package com.example.demo.jpa;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.util.Streamable;
 
 import java.util.List;
@@ -24,4 +25,7 @@ public interface CityRepository extends MyBaseRepository<Dept, Integer> {
     Streamable<Dept> findByName(String name);
 
     Streamable<Dept> findByDeptIdLessThan(Integer deptId);
+
+    @Query("select u from Dept u where u.name like %:#{'日本'}%")
+    List<Dept> findByNameWithSpelExpression(String name);
 }
