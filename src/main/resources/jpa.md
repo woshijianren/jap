@@ -44,3 +44,10 @@ Hibernate:
 
 ###### 记住：参数绑定@Param只是因为参数名称和:xx不一致，如果参数也是xx，那么就不需要用@Param
 
+###### 疑问：为什么我的Spel表达式使用不了
+
+###### 记住：Modifying queries can only use void or int/Integer    除此之外只可以用void
+
+###### 记住：@Transaction要放在repository接口的方法上，放在调用方是没有用的
+
+

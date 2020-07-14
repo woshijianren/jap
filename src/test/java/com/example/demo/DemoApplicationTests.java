@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import cn.hutool.core.util.StrUtil;
 import com.example.demo.jpa.CityRepository;
 import com.example.demo.jpa.Dept;
 import com.example.demo.jpa.PagingAndSortingRepository;
@@ -120,7 +121,35 @@ class DemoApplicationTests {
 
     @Test
     public void test13() {
-        List<Dept> riben = cityRepository.findByNameWithSpelExpression("日本");
-        System.out.println(riben);
+//        List<Dept> riben = cityRepository.findByNameWithSpelExpression("日本");
+//        System.out.println(riben);
+    }
+
+    @Test
+    public void test14() {
+        System.out.println(repository.setName("ee", 1));
+    }
+
+    @Test
+    public void test15() {
+        repository.deleteAllByDeptId(2);
+    }
+
+    @Test
+    public void test16() {
+        repository.deleteInDeptIds(1,2,3,4,5);
+    }
+
+    @Test
+    public void test17() {
+        Page<Dept> byDeptIdLessThan = repository.findByDeptIdLessThan(100, PageRequest.of(1, 3));
+        System.out.println(byDeptIdLessThan.getContent());
+    }
+
+    @Test
+    public void test18() {
+        System.out.println(StrUtil.indexOfIgnoreCase("1231231.Hk", ".hk"));
+        System.out.println("1231231.Hk".substring(0, 7));
+        System.out.println(StrUtil.subPre("1231231.Hk", StrUtil.indexOfIgnoreCase("1231231.Hk", ".hk")));
     }
 }

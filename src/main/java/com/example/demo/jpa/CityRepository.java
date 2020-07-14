@@ -25,7 +25,7 @@ public interface CityRepository extends MyBaseRepository<Dept, Integer> {
     Streamable<Dept> findByName(String name);
 
     Streamable<Dept> findByDeptIdLessThan(Integer deptId);
-
-    @Query("select u from Dept u where u.name like %:#{'日本'}%")
-    List<Dept> findByNameWithSpelExpression(String name);
+//
+//    @Query("select u from Dept u where u.name like %:#{'日本'}%")
+//    List<Dept> findByNameWithSpelExpression(String name);
 }
